@@ -1,9 +1,11 @@
 
  // this is the init phase
  // create variables and access html elements in global scope
-let nextBtn = document.getElementById("nextBtn");
-let goBtnText = document.getElementById("nextBtn")
 let resetBtn = document.getElementById("resetBtn");
+let resetBtnLogo = document.getElementById("resetBtnLogo");
+let nextBtn = document.getElementById("nextBtn");
+let goBtnText = document.getElementById("nextBtn");
+// let resetBtn = document.getElementById("resetBtn");
 let instructionText = document.getElementById("instructionText");
 let exampleText = document.getElementById("exampleText");
 let subExampleText = document.getElementById("exampleText");
@@ -44,7 +46,7 @@ let mainPages = [
         "subExampleText": "Note the symbol beside the number",
     },
     { //page 6
-        "instructionText": "sixth page Header",
+        "instructionText": "&",
         // "nextBtn": "blah", 
         "exampleText": "Your symbol is:",
         "subExampleText": "&"
@@ -71,23 +73,25 @@ function updatePage (e) {
         console.log(pageNumber)
     }
     
-    // if e.target.id == "prevBtn"
-    // if(e.target.id == "prevBtn"){
-        //     pageNumber--;
-        // }
         
         // if e.target.id == "resetBtn"
-        if(e.target.id == "resetBtn"){
-            pageNumber = 0;
-            console.log(pageNumber)
-            hideElements()
-        }
+    if(e.target.id == "resetBtn"){
+        pageNumber = 0;
+        console.log(pageNumber)
+        hideElements()
+    }
+
+    if(e.target.id == "resetBtnLogo"){
+        pageNumber = 0;
+        console.log(pageNumber)
+        hideElements()
+    }
         
         // use the property values from the current page based on the mainPages index set by the pageNumber
-        instructionText.textContent = mainPages[pageNumber].instructionText;
-        exampleText.textContent = mainPages[pageNumber].exampleText;
-        nextBtn.textContent = mainPages[pageNumber].nextBtn;
-        subExampleText.textContent = mainPages[pageNumber].subExampleText;
+    instructionText.textContent = mainPages[pageNumber].instructionText;
+    exampleText.textContent = mainPages[pageNumber].exampleText;
+    nextBtn.textContent = mainPages[pageNumber].nextBtn;
+    subExampleText.textContent = mainPages[pageNumber].subExampleText;
         
     };
     // figure out how to hide elements with a function
@@ -97,8 +101,18 @@ function updatePage (e) {
         if(pageNumber === 0 ) {
             console.log(pageNumber)
             document.getElementById("resetBtn").classList.add("hidden")
-        } if (pageNumber > 0) {
+        } 
+        
+        if (pageNumber > 0) {
             document.getElementById("resetBtn").classList.remove("hidden")
+        } 
+        
+        if (pageNumber === 5) {
+            document.getElementById("nextBtn").classList.add("hidden")
+        } 
+        
+        if (pageNumber < 5) {
+            document.getElementById("nextBtn").classList.remove("hidden")
         }
     }
     hideElements()
