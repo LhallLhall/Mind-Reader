@@ -3,11 +3,10 @@
  // create variables and access html elements in global scope
 let nextBtn = document.getElementById("nextBtn");
 let goBtnText = document.getElementById("nextBtn")
-// let prevBtn = document.getElementById("prevBtn");
 let resetBtn = document.getElementById("resetBtn");
-// let resetBtnText = document.getElementById("resetBtn");
 let instructionText = document.getElementById("instructionText");
 let exampleText = document.getElementById("exampleText");
+let subExampleText = document.getElementById("exampleText");
 
 // this is the state
 // the state keeps the "current page" as an integer
@@ -16,34 +15,39 @@ let pageNumber = 0;
 
 let mainPages = [
     { // page 1
-        "instructionText": "first page Header", 
-        // "exampleText": "this is the first page Example text"
+        "instructionText": "I can read your mind!", 
         "nextBtn": "GO",
+        
     },
     { //page 2
-        "instructionText": "second page Header",
+        "instructionText": "Pick a number from 01 - 99",
         "nextBtn": "Next",
-        "exampleText": "this is the second page Example text"
+        "exampleText": "when you have your number click next",
+        
     },
     { //page 3
-        "instructionText": "third page Header",
+        "instructionText": "Add both digits together to get a new number",
         "nextBtn": "Next",
-        "exampleText": "this is the third page Example text"
+        "exampleText": "Ex: 14 is 1 + 4 = 5",
+        "subExampleText": "click next to proceed",
     },
     { //page 4
-        "instructionText": "fourth page Header",
+        "instructionText": "Subtract your new number from the original number",
         "nextBtn": "Next", 
-        "exampleText": "this is the fourth page Example text"
+        "exampleText": "Ex: 14 - 5 = 9",
+        "subExampleText": "click next to proceed",
     },
     { //page 5
-        "instructionText": "fifth page Header", //will need the randomized symbols pushed into it (MAYBE (along with a stirng of numbers))
+        "instructionText": "0 - & 1 - @ 2 - $ 3 - B", //will need the randomized symbols pushed into it (MAYBE (along with a stirng of numbers))
         "nextBtn": "Reveal", 
-        "exampleText": "this is the fifth page Example text"
+        "exampleText": "Find your new number",
+        "subExampleText": "Note the symbol beside the number",
     },
     { //page 6
         "instructionText": "sixth page Header",
-        "nextBtn": "blah", 
-        "exampleText": "this is the sixth page Example text"
+        // "nextBtn": "blah", 
+        "exampleText": "Your symbol is:",
+        "subExampleText": "&"
     }
 ];
 
@@ -55,7 +59,7 @@ resetBtn.addEventListener("click", updatePage);
 
 // this is the return for the listener
 function updatePage (e) {
-    // console.log(e.target.id)
+    console.log(e.target.id)
     // assume we are on page 0
     // mainPages[0]
     
@@ -63,7 +67,8 @@ function updatePage (e) {
     // if e.target.id == "nextBtn"
     if(e.target.id == "nextBtn"){
         pageNumber++;
-        
+        hideElements()
+        console.log(pageNumber)
     }
     
     // if e.target.id == "prevBtn"
@@ -74,27 +79,27 @@ function updatePage (e) {
         // if e.target.id == "resetBtn"
         if(e.target.id == "resetBtn"){
             pageNumber = 0;
-            // document.getElementById("resetBtn").style.display = "none";
+            console.log(pageNumber)
+            hideElements()
         }
         
         // use the property values from the current page based on the mainPages index set by the pageNumber
         instructionText.textContent = mainPages[pageNumber].instructionText;
         exampleText.textContent = mainPages[pageNumber].exampleText;
         nextBtn.textContent = mainPages[pageNumber].nextBtn;
+        subExampleText.textContent = mainPages[pageNumber].subExampleText;
         
     };
     // figure out how to hide elements with a function
-    // defintely could be a simplier way to do this with the object
+    // maybe a simplier way to do this with the object???
     function hideElements () {
         // console.log(pageNumber)
         if(pageNumber === 0 ) {
             console.log(pageNumber)
-            // let resetBtnTest = document.createElement("button")
-            // resetBtnTest.setAttribute("id", "resetBtn1");
-            document.getElementById("resetBtn").style.visibility = "none"
-        }// if (pageNumber > 0) {
-        //     document.getElementById("resetBtn").classList.remove("hidden")
-        // }
+            document.getElementById("resetBtn").classList.add("hidden")
+        } if (pageNumber > 0) {
+            document.getElementById("resetBtn").classList.remove("hidden")
+        }
     }
     hideElements()
     
