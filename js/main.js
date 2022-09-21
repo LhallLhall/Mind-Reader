@@ -80,12 +80,6 @@ function updatePage (e) {
         console.log(pageNumber)
         hideElements()
     }
-
-    if(e.target.id == "resetBtnLogo"){
-        pageNumber = 0;
-        console.log(pageNumber)
-        hideElements()
-    }
         
         // use the property values from the current page based on the mainPages index set by the pageNumber
     instructionText.textContent = mainPages[pageNumber].instructionText;
@@ -93,10 +87,10 @@ function updatePage (e) {
     nextBtn.textContent = mainPages[pageNumber].nextBtn;
     subExampleText.textContent = mainPages[pageNumber].subExampleText;
         
-    };
+};
     // figure out how to hide elements with a function
     // maybe a simplier way to do this with the object???
-    function hideElements () {
+function hideElements () {
         // console.log(pageNumber)
         if(pageNumber === 0 ) {
             console.log(pageNumber)
@@ -114,7 +108,7 @@ function updatePage (e) {
         if (pageNumber < 5) {
             document.getElementById("nextBtn").classList.remove("hidden")
         }
-    }
-    hideElements()
+}
+hideElements()
     
     
