@@ -2,13 +2,11 @@
  // this is the init phase
  // create variables and access html elements in global scope
 let resetBtn = document.getElementById("resetBtn");
-let resetBtnLogo = document.getElementById("resetBtnLogo");
 let nextBtn = document.getElementById("nextBtn");
 let goBtnText = document.getElementById("nextBtn");
-// let resetBtn = document.getElementById("resetBtn");
 let instructionText = document.getElementById("instructionText");
 let exampleText = document.getElementById("exampleText");
-let subExampleText = document.getElementById("exampleText");
+let subExampleText = document.getElementById("subExampleText");
 
 // this is the state
 // the state keeps the "current page" as an integer
@@ -47,7 +45,6 @@ let mainPages = [
     },
     { //page 6
         "instructionText": "&",
-        // "nextBtn": "blah", 
         "exampleText": "Your symbol is:",
         "subExampleText": "&"
     }
@@ -57,7 +54,6 @@ let mainPages = [
 // call the updatePage method when any button is clicked
 nextBtn.addEventListener("click", updatePage);
 resetBtn.addEventListener("click", updatePage);
-// prevBtn.addEventListener("click", updatePage);
 
 // this is the return for the listener
 function updatePage (e) {
@@ -81,12 +77,12 @@ function updatePage (e) {
         hideElements()
     }
         
-        // use the property values from the current page based on the mainPages index set by the pageNumber
+    // use the property values from the current page based on the mainPages index set by the pageNumber
     instructionText.textContent = mainPages[pageNumber].instructionText;
     exampleText.textContent = mainPages[pageNumber].exampleText;
     nextBtn.textContent = mainPages[pageNumber].nextBtn;
     subExampleText.textContent = mainPages[pageNumber].subExampleText;
-        
+    // console.log(mainPages[pageNumber].exampleText)
 };
     // figure out how to hide elements with a function
     // maybe a simplier way to do this with the object???
