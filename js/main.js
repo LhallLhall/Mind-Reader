@@ -93,10 +93,9 @@ function updatePage (e) {
 function hideElements () {
         // console.log(pageNumber)
         if(pageNumber === 0 ) {
-            
             document.getElementById("resetBtn").classList.add("hidden")
         } 
-        
+
         if (pageNumber > 0) {
             document.getElementById("resetBtn").classList.remove("hidden")
         } 
@@ -107,6 +106,14 @@ function hideElements () {
         
         if (pageNumber < 5) {
             document.getElementById("nextBtn").classList.remove("hidden")
+        }
+
+        if (pageNumber === 4) {
+            document.getElementById("instructionText").classList.add("borderAlt")
+        } 
+        
+        if(pageNumber !== 4) {
+            document.getElementById("instructionText").classList.remove("borderAlt")
         }
 }
 hideElements()
