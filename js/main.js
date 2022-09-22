@@ -17,12 +17,15 @@ let mainPages = [
     { // page 1
         "instructionText": "I can read your mind!", 
         "nextBtn": "GO",
+        "exampleText": "",
+        "subExampleText": ""
         
     },
     { //page 2
         "instructionText": "Pick a number from 01 - 99",
         "nextBtn": "Next",
         "exampleText": "when you have your number click next",
+        "subExampleText": ""
         
     },
     { //page 3
@@ -63,24 +66,26 @@ function updatePage (e) {
     // adjust the pageNumber we are on by +1, -1, or reset to 0
     if(e.target.id == "nextBtn"){
         pageNumber++;
-        hideElements
-        showNumber
+        hideElements()
+        // showNumber
         console.log(pageNumber)
     }
     
     if(e.target.id == "resetBtn"){
         pageNumber = 0;
         console.log(pageNumber)
-        hideElements
+        hideElements()
     }
     
     
-    
+    mainPages[4].instructionText = num.toString().replaceAll(",","")
+    mainPages[5].instructionText = symbols[1]
+    mainPages[5].subExampleText = symbols[1]
     // use the property values from the current page based on the mainPages index set by the pageNumber
     instructionText.innerHTML = mainPages[pageNumber].instructionText;
-    exampleText.textContent = mainPages[pageNumber].exampleText;
-    nextBtn.textContent = mainPages[pageNumber].nextBtn;
-    subExampleText.textContent = mainPages[pageNumber].subExampleText;
+    exampleText.innerHTML = mainPages[pageNumber].exampleText;
+    nextBtn.innerHTML = mainPages[pageNumber].nextBtn;
+    subExampleText.innerHTML = mainPages[pageNumber].subExampleText;
 };
     // figure out how to hide elements with a function
     // maybe a simplier way to do this with the object???
@@ -102,25 +107,6 @@ function hideElements () {
         if (pageNumber < 5) {
             document.getElementById("nextBtn").classList.remove("hidden")
         }
-        // switch (expression) {
-        //     case value1:
-        //       //Statements executed when the
-        //       //result of expression matches value1
-        //       [break;]
-        //     case value2:
-        //       //Statements executed when the
-        //       //result of expression matches value2
-        //       [break;]
-        //     ...
-        //     case valueN:
-        //       //Statements executed when the
-        //       //result of expression matches valueN
-        //       [break;]
-        //     [default:
-        //       //Statements executed when none of
-        //       //the values match the value of the expression
-        //       [break;]]
-        //   }
 }
 hideElements()
 
@@ -136,7 +122,7 @@ function randomArrayShuffle(array) {
     }
     return array;
 }
-let symbols = ["🤥", "@", "%🤩", "$" , "*", "#", "?", "~","🥸", "+", "😎", ">"]
+let symbols = ["🤥", "😂", "🤩", "🤯" , "😳", "🫠", "🥴", "🤤","🥸", "👩‍💻", "😎", "🧑‍💻"]
 randomArrayShuffle(symbols); 
 console.log(randomArrayShuffle(symbols))
 
@@ -145,10 +131,10 @@ let num = []
 let symbolNum = 0
 for(let i = 1; i <= 99; i++) {   
     if(i % 9 == 0){
-        num.push(symbols[1] + " = " + i)
+        num.push(symbols[1] +  ' = ' + i +"<br/>" )
         console.log("hey!")
     } else {
-        num.push(symbols[symbolNum] + " = " + i)
+        num.push(symbols[symbolNum] + ' = ' + i + "<br/>" )
         if(symbolNum > 9){
             symbolNum = 0
         }
@@ -158,9 +144,6 @@ for(let i = 1; i <= 99; i++) {
 
 console.log(num)
 
-function showNumber () {
-    mainPages[4].instructionText = num
-    mainPages[5].instructionText = symbols[1]
-    mainPages[5].subExampleText = symbols[1]
-}
-showNumber()
+// function showNumber () {
+// }
+// showNumber()
