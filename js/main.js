@@ -7,7 +7,7 @@ let goBtnText = document.getElementById("nextBtn");
 let instructionText = document.getElementById("instructionText");
 let exampleText = document.getElementById("exampleText");
 let subExampleText = document.getElementById("subExampleText");
-
+let symbols = ["!", "@", "%", "$" , "*", "#", "?", "~",]
 // this is the state
 // the state keeps the "current page" as an integer
 // the mainPages array holds all of the page objects which can be called back to
@@ -60,17 +60,13 @@ function updatePage (e) {
     console.log(e.target.id)
     // assume we are on page 0
     // mainPages[0]
-    
     // adjust the pageNumber we are on by +1, -1, or reset to 0
-    // if e.target.id == "nextBtn"
     if(e.target.id == "nextBtn"){
         pageNumber++;
         hideElements()
         console.log(pageNumber)
     }
     
-        
-        // if e.target.id == "resetBtn"
     if(e.target.id == "resetBtn"){
         pageNumber = 0;
         console.log(pageNumber)
@@ -82,14 +78,13 @@ function updatePage (e) {
     exampleText.textContent = mainPages[pageNumber].exampleText;
     nextBtn.textContent = mainPages[pageNumber].nextBtn;
     subExampleText.textContent = mainPages[pageNumber].subExampleText;
-    // console.log(mainPages[pageNumber].exampleText)
 };
     // figure out how to hide elements with a function
     // maybe a simplier way to do this with the object???
 function hideElements () {
         // console.log(pageNumber)
         if(pageNumber === 0 ) {
-            console.log(pageNumber)
+            
             document.getElementById("resetBtn").classList.add("hidden")
         } 
         
@@ -104,7 +99,39 @@ function hideElements () {
         if (pageNumber < 5) {
             document.getElementById("nextBtn").classList.remove("hidden")
         }
+        // switch (expression) {
+        //     case value1:
+        //       //Statements executed when the
+        //       //result of expression matches value1
+        //       [break;]
+        //     case value2:
+        //       //Statements executed when the
+        //       //result of expression matches value2
+        //       [break;]
+        //     ...
+        //     case valueN:
+        //       //Statements executed when the
+        //       //result of expression matches valueN
+        //       [break;]
+        //     [default:
+        //       //Statements executed when none of
+        //       //the values match the value of the expression
+        //       [break;]]
+        //   }
 }
 hideElements()
     
-    
+// function randomValueFromArray(symbols){
+//     const random = Math.floor(Math.random()*symbols.length);
+//     return symbols[random];
+// }
+// console.log(randomValueFromArray())
+// function shuffleArray(symbols) {
+//     for (let i = array.length - 1; i > 0; i--) {
+//         const random = Math.floor(Math.random() * (i + 1));
+//         [symbols[i], symbols[random]] = [symbols[random], symbols[i]];
+//     }
+// }
+// var arr = [2, 11, 37, 42];
+// shuffle(arr);
+// console.log(arr);
