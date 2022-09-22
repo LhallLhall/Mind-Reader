@@ -58,6 +58,7 @@ if pagenumber === 0
    display the reset btn
 
 ### Random Symblos
-first thing would be that the the numbers and the random symbols would display on page 5 out of 6.
+the first thing that would need to happen is the the numbers and the random symbols would display on page 5 out of 6.
 secondly the numbers need to be random (thinking about doing a math.random function) and the "& " symbol has to always apply to a multiple of 9 but be random for every other number.
 thirdly we need to go deeper. Firstly: how do we shuffle an array of strings. Secondly: how do we take that symbol and pair it with a number? (possibly for loop???)
+How do I concat the symbols and the array of number together so they can attach like 1 - #, 2 - ! etc...

@@ -7,7 +7,7 @@ let goBtnText = document.getElementById("nextBtn");
 let instructionText = document.getElementById("instructionText");
 let exampleText = document.getElementById("exampleText");
 let subExampleText = document.getElementById("subExampleText");
-let symbols = ["!", "@", "%", "$" , "*", "#", "?", "~",]
+// let symbols = ["!", "@", "%", "$" , "*", "#", "?", "~",]
 // this is the state
 // the state keeps the "current page" as an integer
 // the mainPages array holds all of the page objects which can be called back to
@@ -125,13 +125,38 @@ hideElements()
 //     const random = Math.floor(Math.random()*symbols.length);
 //     return symbols[random];
 // }
-// console.log(randomValueFromArray())
-// function shuffleArray(symbols) {
-//     for (let i = array.length - 1; i > 0; i--) {
-//         const random = Math.floor(Math.random() * (i + 1));
-//         [symbols[i], symbols[random]] = [symbols[random], symbols[i]];
-//     }
-// }
-// var arr = [2, 11, 37, 42];
-// shuffle(arr);
-// console.log(arr);
+// randomValueFromArray()
+// console.log(randomValueFromArray(symbols))
+
+function randomArrayShuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
+}
+let symbols = ["& = ", "@ = ", "% = ", "$ = " , "* = ", "# = ", "? = ", "~ = ","A = "]
+randomArrayShuffle(symbols); 
+console.log(randomArrayShuffle(symbols))
+
+
+function randomValueFromArray(symbols){
+    const random = Math.floor(Math.random()*symbols.length);
+    return symbols[random];
+}
+
+let num = []
+let symbolNum = 0
+
+for(let i = 1; i <= 99; i++) {   
+    num.push(symbols[randomValueFromArray(symbols)] + '' + i)
+    // symbolNum++
+    if(i % 9 == 0){
+        
+    }
+}
+console.log(num)
