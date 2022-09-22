@@ -54,7 +54,7 @@ let mainPages = [
 ];
 
 // create the event listeners for the "on click" buttons
-// call the updatePage method when any button is clicked
+// call the updatePage method when selected button is clicked
 nextBtn.addEventListener("click", updatePage);
 resetBtn.addEventListener("click", updatePage);
 
@@ -87,8 +87,7 @@ function updatePage (e) {
     nextBtn.innerHTML = mainPages[pageNumber].nextBtn;
     subExampleText.innerHTML = mainPages[pageNumber].subExampleText;
 };
-    // figure out how to hide elements with a function
-    // maybe a simplier way to do this with the object???
+// figure out how to hide elements with a function
 function hideElements () {
         // console.log(pageNumber)
         if(pageNumber === 0 ) {
@@ -143,7 +142,3 @@ for(let i = 1; i <= 99; i++) {
 }
 
 console.log(num)
-
-// function showNumber () {
-// }
-// showNumber()

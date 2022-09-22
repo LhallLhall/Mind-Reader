@@ -4,3 +4,6 @@
 .hidden {
     display: none;
 }
+.wrapper {
+    overflow: scroll
+}
