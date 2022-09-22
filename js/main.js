@@ -38,15 +38,15 @@ let mainPages = [
         "subExampleText": "click next to proceed",
     },
     { //page 5
-        "instructionText": "0 - & 1 - @ 2 - $ 3 - B", //will need the randomized symbols pushed into it (MAYBE (along with a stirng of numbers))
+        "instructionText": "", //will need the randomized symbols pushed into it (MAYBE (along with a stirng of numbers))
         "nextBtn": "Reveal", 
         "exampleText": "Find your new number",
         "subExampleText": "Note the symbol beside the number",
     },
     { //page 6
-        "instructionText": "&",
+        "instructionText": "",
         "exampleText": "Your symbol is:",
-        "subExampleText": "&"
+        "subExampleText": ""
     }
 ];
 
@@ -63,18 +63,21 @@ function updatePage (e) {
     // adjust the pageNumber we are on by +1, -1, or reset to 0
     if(e.target.id == "nextBtn"){
         pageNumber++;
-        hideElements()
+        hideElements
+        showNumber
         console.log(pageNumber)
     }
     
     if(e.target.id == "resetBtn"){
         pageNumber = 0;
         console.log(pageNumber)
-        hideElements()
+        hideElements
     }
-        
+    
+    
+    
     // use the property values from the current page based on the mainPages index set by the pageNumber
-    instructionText.textContent = mainPages[pageNumber].instructionText;
+    instructionText.innerHTML = mainPages[pageNumber].instructionText;
     exampleText.textContent = mainPages[pageNumber].exampleText;
     nextBtn.textContent = mainPages[pageNumber].nextBtn;
     subExampleText.textContent = mainPages[pageNumber].subExampleText;
@@ -120,43 +123,44 @@ function hideElements () {
         //   }
 }
 hideElements()
-    
-// function randomValueFromArray(symbols){
-//     const random = Math.floor(Math.random()*symbols.length);
-//     return symbols[random];
-// }
-// randomValueFromArray()
-// console.log(randomValueFromArray(symbols))
+
 
 function randomArrayShuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
     while (0 !== currentIndex) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
     }
     return array;
 }
-let symbols = ["& = ", "@ = ", "% = ", "$ = " , "* = ", "# = ", "? = ", "~ = ","A = "]
+let symbols = ["🤥", "@", "%🤩", "$" , "*", "#", "?", "~","🥸", "+", "😎", ">"]
 randomArrayShuffle(symbols); 
 console.log(randomArrayShuffle(symbols))
 
 
-function randomValueFromArray(symbols){
-    const random = Math.floor(Math.random()*symbols.length);
-    return symbols[random];
-}
-
 let num = []
 let symbolNum = 0
-
 for(let i = 1; i <= 99; i++) {   
-    num.push(symbols[randomValueFromArray(symbols)] + '' + i)
-    // symbolNum++
     if(i % 9 == 0){
-        
+        num.push(symbols[1] + " = " + i)
+        console.log("hey!")
+    } else {
+        num.push(symbols[symbolNum] + " = " + i)
+        if(symbolNum > 9){
+            symbolNum = 0
+        }
     }
+    symbolNum++
 }
+
 console.log(num)
+
+function showNumber () {
+    mainPages[4].instructionText = num
+    mainPages[5].instructionText = symbols[1]
+    mainPages[5].subExampleText = symbols[1]
+}
+showNumber()
