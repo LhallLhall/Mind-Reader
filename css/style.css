@@ -1,1 +1,17 @@
+/* html {
+    background-color: gray;
+} */
+.hidden {
+    display: none;
+}
+.wrapper {
+    overflow: scroll;
+    max-height: 250px;
+}
+.background_color{
+    background: lightskyblue;
+}
 
+.borderAlt{
+    border: 3px solid #6F686D
+}
