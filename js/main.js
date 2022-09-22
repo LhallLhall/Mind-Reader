@@ -7,11 +7,13 @@ let goBtnText = document.getElementById("nextBtn");
 let instructionText = document.getElementById("instructionText");
 let exampleText = document.getElementById("exampleText");
 let subExampleText = document.getElementById("subExampleText");
-// let symbols = ["!", "@", "%", "$" , "*", "#", "?", "~",]
 // this is the state
 // the state keeps the "current page" as an integer
 // the mainPages array holds all of the page objects which can be called back to
 let pageNumber = 0;
+let num = []
+let symbolNum = 0
+let symbols = ["🤥", "😂", "🤩", "🤯" , "😳", "🫠", "🥴", "🤤","🥸", "👩‍💻", "😎", "🧑‍💻"]
 
 let mainPages = [
     { // page 1
@@ -121,13 +123,10 @@ function randomArrayShuffle(array) {
     }
     return array;
 }
-let symbols = ["🤥", "😂", "🤩", "🤯" , "😳", "🫠", "🥴", "🤤","🥸", "👩‍💻", "😎", "🧑‍💻"]
 randomArrayShuffle(symbols); 
 console.log(randomArrayShuffle(symbols))
 
 
-let num = []
-let symbolNum = 0
 for(let i = 1; i <= 99; i++) {   
     if(i % 9 == 0){
         num.push(symbols[1] +  ' = ' + i +"<br/>" )
@@ -140,5 +139,4 @@ for(let i = 1; i <= 99; i++) {
     }
     symbolNum++
 }
-
 console.log(num)
