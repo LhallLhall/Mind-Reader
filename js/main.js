@@ -7,49 +7,49 @@ let goBtnText = document.getElementById("nextBtn");
 let instructionText = document.getElementById("instructionText");
 let exampleText = document.getElementById("exampleText");
 let subExampleText = document.getElementById("subExampleText");
+let symbols = ["🤥", "😂", "🤩", "🤯" , "😳", "🫠", "🥴", "🤤","🥸", "👩‍💻", "😎", "🧑‍💻"]
 // this is the state
 // the state keeps the "current page" as an integer
 // the mainPages array holds all of the page objects which can be called back to
 let pageNumber = 0;
 let num = []
 let symbolNum = 0
-let symbols = ["🤥", "😂", "🤩", "🤯" , "😳", "🫠", "🥴", "🤤","🥸", "👩‍💻", "😎", "🧑‍💻"]
 
 let mainPages = [
     { // page 1
-        "instructionText": "I can read your mind!", 
-        "nextBtn": "GO",
+        "instructionTextObj": "I can read your mind!", 
+        "nextBtnObj": "GO",
         "exampleText": "",
         "subExampleText": ""
         
     },
     { //page 2
-        "instructionText": "Pick a number from 01 - 99",
-        "nextBtn": "Next",
+        "instructionTextObj": "Pick a number from 01 - 99",
+        "nextBtnObj": "Next",
         "exampleText": "when you have your number click next",
         "subExampleText": ""
         
     },
     { //page 3
-        "instructionText": "Add both digits together to get a new number",
-        "nextBtn": "Next",
+        "instructionTextObj": "Add both digits together to get a new number",
+        "nextBtnObj": "Next",
         "exampleText": "Ex: 14 is 1 + 4 = 5",
         "subExampleText": "click next to proceed",
     },
     { //page 4
-        "instructionText": "Subtract your new number from the original number",
-        "nextBtn": "Next", 
+        "instructionTextObj": "Subtract your new number from the original number",
+        "nextBtnObj": "Next", 
         "exampleText": "Ex: 14 - 5 = 9",
         "subExampleText": "click next to proceed",
     },
     { //page 5
-        "instructionText": "", //will need the randomized symbols pushed into it (MAYBE (along with a stirng of numbers))
-        "nextBtn": "Reveal", 
+        "instructionTextObj": "",
+        "nextBtnObj": "Reveal", 
         "exampleText": "Find your new number",
         "subExampleText": "Note the symbol beside the number",
     },
     { //page 6
-        "instructionText": "",
+        "instructionTextObj": "",
         "exampleText": "Your symbol is:",
         "subExampleText": ""
     }
@@ -80,13 +80,13 @@ function updatePage (e) {
     }
     
     
-    mainPages[4].instructionText = num.toString().replaceAll(",","")
-    mainPages[5].instructionText = symbols[1]
+    mainPages[4].instructionTextObj = num.toString().replaceAll(",","")
+    mainPages[5].instructionTextObj = symbols[1]
     mainPages[5].subExampleText = symbols[1]
     // use the property values from the current page based on the mainPages index set by the pageNumber
-    instructionText.innerHTML = mainPages[pageNumber].instructionText;
+    instructionText.innerHTML = mainPages[pageNumber].instructionTextObj;
     exampleText.innerHTML = mainPages[pageNumber].exampleText;
-    nextBtn.innerHTML = mainPages[pageNumber].nextBtn;
+    nextBtn.innerHTML = mainPages[pageNumber].nextBtnObj;
     subExampleText.innerHTML = mainPages[pageNumber].subExampleText;
 };
 // figure out how to hide elements with a function
@@ -118,7 +118,7 @@ function hideElements () {
 }
 hideElements()
 
-
+//Found this array randomizer online (I DID NOT CREATE THIS!!!!!!)
 function randomArrayShuffle(array) {
     var currentIndex = array.length, temporaryValue, randomIndex;
     while (0 !== currentIndex) {
@@ -137,7 +137,6 @@ console.log(randomArrayShuffle(symbols))
 for(let i = 1; i <= 99; i++) {   
     if(i % 9 == 0){
         num.push(symbols[1] +  ' = ' + i +"<br/>" )
-        console.log("hey!")
     } else {
         num.push(symbols[symbolNum] + ' = ' + i + "<br/>" )
         if(symbolNum > 9){

@@ -1,5 +1,4 @@
-## questions for Logan
-- 
+
 
 ## Variables
 - resetBtn
@@ -9,40 +8,69 @@
 - exampleText <!-- grabs the p element that is right below the next button-->
 - subExampleText
 - symbols
-- symbolNum
 
 ## state
-- current page: integer
+- current page: integer 0
+- symbolNum: integer 0
+- num: empty array
 
 ## objects
 1 mainPages []
-  - instructionText: " " <!-- "pick a number", "add both digits together to get a new number", "subtract your new number with the original number" would also maybe turn into the main display for all the symbols-->
+  - instructionTextObj: " " <!-- "pick a number", "add both digits together to get a new number", "subtract your new number with the original number" would also maybe turn into the main display for all the symbols-->
   - ExampleText: " " <!-- I.E the "ex. 14 is 1 - 4 = 5" -->
-  - nextBtn: " "
+  - nextBtnObj: " "
   - subExampleText
 
 
 ## functions
 - updatePage()
   ~~~
-  if target id == id of btn
+  grab the target event
+  If event target id == id of next btn
     add +1 to the PageNumber
     and check hideElements()
 
-  If target id == id of reset btn
-    subtract 1 to the pageNumber
+  If event target id == id of reset btn
+    subtract 1 of the pageNumber
       and check hideElements()
-  ~~~
-- randomArrayShuffle
-  ~~~
   
+  mainPages[pageNumber using an Index number] target obj string = num or symbol
+
+  instructionText.innerHtml = mainPages[the index number of what pagenumber is currently on].instructionText (asks for the key in the obj to access the string attached)
+  ~~~
+- randomArrayShuffle <!--got this from online. no credit to me!-->
+
+- randomizeSymbols()
+  ~~~
+  for loop that gets 01 - 99
+    If its divisible by 9
+      push out the 1st symbol
+    
+    Else
+      push out the symbol with the index of symbolNum
+      
+      (to reset symbolNum so I get more than 9 number with symbols)
+      If symbolNum > 9
+        symbolNum = 9 
+    symbolNum +1
   ~~~
 
-- RandomizeSymbols()
+- hideElements
   ~~~
+  For reset Button
+  IF pagenumber === 0
+    classList.add hidden
 
+  IF pageNumber > 0
+    classList.remove hidden
+
+  For next Button
+  IF pagenumber === 5
+    classList.add hidden
+  
+  If pagenumber < 5
+    calsslist.remove hidden
   ~~~
-
 
 
 ### Procedures
