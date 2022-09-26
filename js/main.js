@@ -134,9 +134,9 @@ randomArrayShuffle(symbols);
 console.log(randomArrayShuffle(symbols))
 
 
-for(let i = 1; i <= 99; i++) {   
+for(let i = 0; i <= 99; i++) {   
     if(i % 9 == 0){
-        num.push(symbols[1] +  ' = ' + i +"<br/>" )
+        num.push(symbols[1] + ' = ' + i +"<br/>" )
     } else {
         num.push(symbols[symbolNum] + ' = ' + i + "<br/>" )
         if(symbolNum > 9){

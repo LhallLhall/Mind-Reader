@@ -87,7 +87,7 @@
     else pagenumber > whatever page the element doesnt need to be shown
     display the reset btn
 
-### Random Symblos
+### Random Symbols
 - The first thing that would need to happen is the the numbers and the random symbols would display on page 5 out of 6.
 - Secondly the numbers need to be random (thinking about doing a math.random function) and the "& " symbol has to always apply to a multiple of 9 but be random for every other number.
 - Thirdly we need to go deeper. Firstly: how do we shuffle an array of strings. Secondly: how do we take that symbol and pair it with a number? (possibly for loop???)
